@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace Gepardmotoshop
 {
-    public partial class Form1 : Form
+    public partial class FrmInputBarang : Form
     {
-        public Form1()
+        public FrmInputBarang()
         {
             InitializeComponent();
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Datagridbarang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void GepardmotoshopDataSetBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
