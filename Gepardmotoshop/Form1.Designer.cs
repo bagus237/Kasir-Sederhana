@@ -38,13 +38,16 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.datagridbarang = new System.Windows.Forms.DataGridView();
+            this.dataBarangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gepardmotoshopDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gepardmotoshopDataSet = new Gepardmotoshop.gepardmotoshopDataSet();
             this.btnhapus = new System.Windows.Forms.Button();
             this.btnedit = new System.Windows.Forms.Button();
             this.btnsimpan = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.gepardmotoshopDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gepardmotoshopDataSet = new Gepardmotoshop.gepardmotoshopDataSet();
+            this.dataBarangTableAdapter = new Gepardmotoshop.gepardmotoshopDataSetTableAdapters.DataBarangTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.datagridbarang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBarangBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gepardmotoshopDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gepardmotoshopDataSet)).BeginInit();
             this.SuspendLayout();
@@ -120,15 +123,29 @@
             // 
             // datagridbarang
             // 
-            this.datagridbarang.AutoGenerateColumns = false;
             this.datagridbarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridbarang.DataSource = this.gepardmotoshopDataSetBindingSource;
             this.datagridbarang.Location = new System.Drawing.Point(25, 259);
             this.datagridbarang.Name = "datagridbarang";
             this.datagridbarang.RowTemplate.Height = 28;
             this.datagridbarang.Size = new System.Drawing.Size(600, 351);
             this.datagridbarang.TabIndex = 8;
             this.datagridbarang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Datagridbarang_CellContentClick);
+            // 
+            // dataBarangBindingSource
+            // 
+            this.dataBarangBindingSource.DataMember = "DataBarang";
+            this.dataBarangBindingSource.DataSource = this.gepardmotoshopDataSetBindingSource;
+            // 
+            // gepardmotoshopDataSetBindingSource
+            // 
+            this.gepardmotoshopDataSetBindingSource.DataSource = this.gepardmotoshopDataSet;
+            this.gepardmotoshopDataSetBindingSource.Position = 0;
+            this.gepardmotoshopDataSetBindingSource.CurrentChanged += new System.EventHandler(this.GepardmotoshopDataSetBindingSource_CurrentChanged);
+            // 
+            // gepardmotoshopDataSet
+            // 
+            this.gepardmotoshopDataSet.DataSetName = "gepardmotoshopDataSet";
+            this.gepardmotoshopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnhapus
             // 
@@ -168,16 +185,9 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Data Barang";
             // 
-            // gepardmotoshopDataSetBindingSource
+            // dataBarangTableAdapter
             // 
-            this.gepardmotoshopDataSetBindingSource.DataSource = this.gepardmotoshopDataSet;
-            this.gepardmotoshopDataSetBindingSource.Position = 0;
-            this.gepardmotoshopDataSetBindingSource.CurrentChanged += new System.EventHandler(this.GepardmotoshopDataSetBindingSource_CurrentChanged);
-            // 
-            // gepardmotoshopDataSet
-            // 
-            this.gepardmotoshopDataSet.DataSetName = "gepardmotoshopDataSet";
-            this.gepardmotoshopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataBarangTableAdapter.ClearBeforeFill = true;
             // 
             // FrmInputBarang
             // 
@@ -200,7 +210,9 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmInputBarang";
             this.Text = "Input Barang";
+            this.Load += new System.EventHandler(this.FrmInputBarang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datagridbarang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBarangBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gepardmotoshopDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gepardmotoshopDataSet)).EndInit();
             this.ResumeLayout(false);
@@ -225,6 +237,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.BindingSource gepardmotoshopDataSetBindingSource;
         private gepardmotoshopDataSet gepardmotoshopDataSet;
+        private System.Windows.Forms.BindingSource dataBarangBindingSource;
+        private gepardmotoshopDataSetTableAdapters.DataBarangTableAdapter dataBarangTableAdapter;
     }
 }
 
